@@ -33,6 +33,14 @@ export default [
     props: (route) => ({ user: store.state.auth.currentUser || {} }),
   },
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => lazyLoadView(import('@views/dashboard.vue')),
+    meta: {
+      authRequired: true,
+    },
+  },
+  {
     path: '/profile/:username',
     name: 'username-profile',
     component: () => lazyLoadView(import('@views/profile.vue')),
